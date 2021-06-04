@@ -1,0 +1,21 @@
+#include<dht.h>
+
+dht DHT;
+
+void humidityAndTemp(int sensorPin){
+  int chk = DHT.read11(sensorPin);
+  Serial.print("humidity=");
+  Serial.println(DHT.humidity,1);
+  Serial.print("temparature=");
+  Serial.println(DHT.temperature,1);
+  delay(1000);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+}
+
+void loop() {
+  humidityAndTemp(A0);
+}
